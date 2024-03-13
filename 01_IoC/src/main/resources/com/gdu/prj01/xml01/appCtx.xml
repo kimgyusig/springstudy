@@ -6,10 +6,10 @@
   <!-- 객체(object)는 빈(bean)이라고 부른다. -->
   
   <!-- Calculator calculator = new Calculator(); -->
-  <bean class="com.gdu.prj01.xml01.Calculator" 
+  <bean class="com.gdu.prj01.xml01.Calculator"  
         id="calculator"
-        scope="singleton" />
-        
+        scope="singleton" /> <!-- class= 타입 id= 객체이름 scope= singleton 한개만 만든다 singleton은 생략가능 -->
+    
   <!-- 
     Computer computer1 = new Computer();
     computer1.setModel("gram");
@@ -34,6 +34,14 @@
     <constructor-arg value="300" />
     <constructor-arg ref="calculator" />       
   </bean>
-   
+
+  <bean class="com.gdu.prj01.xml01.Computer" id="computer3">
+    <property name="model" value="book" />
+    <property name="price" value="5000" />
+    <property name="calculator" ref="calculator" />
+  </bean>
+
+
+
 
 </beans>

@@ -11,7 +11,7 @@
   
 	<name>01_IoC</name>
   
-  <!-- deploy file (배포 파일) 확자앚 -->
+  <!-- deploy file (배포 파일) 확장자 -->
 	<packaging>war</packaging>
   
   <!-- deploy file (배포 파일) 버전 -->
