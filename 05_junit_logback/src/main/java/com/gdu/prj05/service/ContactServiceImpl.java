@@ -76,7 +76,7 @@ public class ContactServiceImpl implements ContactService {
       out.println("<script>");
       if(updateCount == 1) {
         out.println("alert('연락처가 수정되었습니다.')");
-        out.println("location.href='" + request.getContextPath() + "/contact/detail.do?contactNo=" + contactNo + "'");  // redirect 를 의미하는 코드
+        out.println("location.href='" + request.getContextPath() + "/contact/detail.do?contact-no=" + contactNo + "'");  // redirect 를 의미하는 코드
       } else {
         out.println("alert('연락처가 수정되지 않았습니다.')");
         out.println("history.back()");
@@ -92,22 +92,30 @@ public class ContactServiceImpl implements ContactService {
   }
 
   @Override
-  public void removeContact(HttpServletRequest request, HttpServletResponse response) {
-    // 삭제 (성공-> 목록보기 실패-> 뒤로가기)
+  public void removeContact(HttpServletRequest request, HttpServletResponse response) { // service 에서 requeset response 선언 할수 없다 controller 에서 받아오는것
+ // 삭제(성공->목록보기, 실패->뒤로가기)
     
-     // 삭제할 contactNo 삭제
-    int deleteCount = contactDao.removeContact( Integer.parseInt(request.getParameter("contact-no")));
+    // 삭제할 contactNo
+    int contactNo = Integer.parseInt(request.getParameter("contact-no"));
+    
+    // 삭제
+    int deleteCount = contactDao.removeContact(contactNo);
+    
     // 삭제 결과에 따른 응답
     response.setContentType("text/html; charset=UTF-8");
     try {
       PrintWriter out = response.getWriter();
+      out.println("<script>");
       if(deleteCount == 1) {
-        out.println("<script>");
-        out.println("location.href='"+request.getContextPath()+"/list.do'");
+        out.println("alert('연락처가 삭제되었습니다.')");
+        out.println("location.href='" + request.getContextPath() + "/contact/list.do'");  // redirect 를 의미하는 코드
       } else {
+        out.println("alert('연락처가 삭제되지 않았습니다.')");
         out.println("history.back()");
       }
       out.println("</script>");
+      out.flush();
+      out.close();
     } catch (Exception e) {
       e.printStackTrace();
     }
