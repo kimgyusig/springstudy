@@ -18,6 +18,7 @@ public class ContactScheduler {
  @Scheduled(cron="0 40 11 * * *")
  public void execute() {
    log.info("{}개", contactService.getContactList().size()); 
+
  }
  
  /*
