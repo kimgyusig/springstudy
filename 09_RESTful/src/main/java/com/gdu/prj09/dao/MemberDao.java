@@ -1,6 +1,5 @@
 package com.gdu.prj09.dao;
 
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +13,8 @@ public interface MemberDao {
   int deleteMember(int memberNo);
   int deleteMemberes(List<String> memberNoList);
   int getTotalMemberCount();
-  List<MemberDto> getMemberList(Map<String, Object> map); // 페이징 처리 위해서 begin end 값 Map으로받는다.
+  List<AddressDto> getMemberList(Map<String, Object> map); // 페이징 처리 위해서 begin end 값 Map으로받는다.
   MemberDto getMemberByNo(int memberNo);
+  int getTotalAddressCountByNo(int memberNo);
+  List<AddressDto> getAddressListByNo(Map<String, Object> map);
 }
