@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gdu.mybatis_ex.mybatis.mapper.student_t">
+
+   <insert id="studentAdd"
+           parameterType="StudentDto">
+      INSERT INTO STUNDENT_T (
+         STU_NO
+       , NAME
+       , KOR
+       , ENG
+       , MATH
+       , AVE
+      , MARK
+      ) VALUES (
+          STUDENT_SEQ.NEXTVAL
+        , #{name}
+        , #{kor}
+        , #{eng}
+        , #{math}
+        , (#{kor} + #{eng} + #{math}) / 3
+      , CASE
+          WHEN (#{kor} + #{eng} + #{math}) / 3 >= 90 THEN 'A'
+          WHEN (#{kor} + #{eng} + #{math}) / 3 >= 80 THEN 'B'
+          WHEN (#{kor} + #{eng} + #{math}) / 3 >= 70 THEN 'C'
+          WHEN (#{kor} + #{eng} + #{math}) / 3 >= 60 THEN 'D'
+          ELSE 'F'
+        END
+      ) 
+  </insert>
+  
+  
+  
+  
+</mapper>
