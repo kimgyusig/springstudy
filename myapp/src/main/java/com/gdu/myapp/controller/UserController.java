@@ -73,8 +73,7 @@ public class UserController {
   
   @PostMapping(value="/sendCode.do", produces = "application/json")
   public ResponseEntity<Map<String, Object>> snedCode(@RequestBody Map<String, Object> params){
-    System.out.println(params);
-    return new ResponseEntity<>(HttpStatus.OK);
+    return userService.sendCode(params);
   }
   
 }
