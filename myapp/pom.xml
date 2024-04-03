@@ -37,7 +37,13 @@
       <version>2.16.1</version>
     </dependency>
 
-
+  <!-- JSON in JAVA -->
+  <!-- https://mvnrepository.com/artifact/org.json/json -->
+    <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>20240303</version>
+    </dependency>
     
     <!-- Log 를 남기는 로그 프레임워크 (Log4j 보다 향상된 기능) -->
     <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
@@ -51,6 +57,7 @@
       <scope>runtime</scope>
       -->
     </dependency>
+    
     
     <!-- 실행하는 쿼리문을 로그로 남김 -->
     <!-- https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4.1 -->
