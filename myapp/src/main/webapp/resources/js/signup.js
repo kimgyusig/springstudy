@@ -1,8 +1,8 @@
 /**
  * 
  */
- 
- var emailCheck = false;
+
+var emailCheck = false;
 var passwordCheck = false;
 var passwordConfirm = false;
 var nameCheck = false;
@@ -60,7 +60,7 @@ const fnCheckEmail = ()=>{
   */
   
   let inpEmail = document.getElementById('inp-email');
-  let regEmail = /^[A-Za-z0-9-_]{2,}@[A-Za-z0-9]+(\.[A-Za-z]{2,6}){1,2}$/; // \. 이스케이프처리 . 표현 정규식에서 . 은 모든문자를 칭함
+  let regEmail = /^[A-Za-z0-9-_]{2,}@[A-Za-z0-9]+(\.[A-Za-z]{2,6}){1,2}$/;
   if(!regEmail.test(inpEmail.value)){
     alert('이메일 형식이 올바르지 않습니다.');
     emailCheck = false;
@@ -89,7 +89,7 @@ const fnCheckEmail = ()=>{
           'email': inpEmail.value
         })
       })
-      .then(response => response.json()) // 받아온 응답에서 json만꺼내겠다
+      .then(response => response.json())
       .then(resData => {  // resData = {"code": "123qaz"}
         alert(inpEmail.value + '로 인증코드를 전송했습니다.');
         let inpCode = document.getElementById('inp-code');
@@ -178,10 +178,9 @@ const fnCheckMobile = () => {
   }
 }
 
-const fnCheckAgree = ()=>{
+const fnCheckAgree = () => {
   let chkService = document.getElementById('chk-service');
   agreeCheck = chkService.checked;
-  
 }
 
 const fnSignup = () => {
@@ -206,7 +205,7 @@ const fnSignup = () => {
     } else if(!agreeCheck) {
       alert('서비스 약관에 동의해야 서비스를 이용할 수 있습니다.');
       evt.preventDefault();
-      return;  
+      return;
     }
   })
 }

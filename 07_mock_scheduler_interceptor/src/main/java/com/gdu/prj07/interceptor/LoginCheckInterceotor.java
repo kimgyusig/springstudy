@@ -16,6 +16,7 @@ public class LoginCheckInterceotor implements HandlerInterceptor {
     HttpSession session = request.getSession();
     
      if( session.getAttribute("user") == null) {
+       response.setContentType("text/html; charset=UTF-8");
        PrintWriter out = response.getWriter();
        out.println("<script>");
        out.println("alert('로그인이필요합니다.')");
