@@ -14,4 +14,5 @@ public interface UserMapper {
   int insertAccessHistory(Map<String, Object> map);
   int insertUser(UserDto user);
   int deleteUser(int userNo);
+  int updateAccessHistory(String sessionId);
 }

@@ -111,7 +111,7 @@ public class UserServiceImpl implements UserService {
         Map<String, Object> params = Map.of("email", email
                                           , "pw", pw
                                           , "ip", request.getRemoteAddr()
-                                          , "userAgent", request.getHeader("User-Agent")
+                                          , "userAgent", request.getHeader("User-Agent") // 접속한 브라우저
                                           , "sessionId", request.getSession().getId());
        
         // Sign In (세션에 user 저장하기)
@@ -243,6 +243,7 @@ public class UserServiceImpl implements UserService {
         // 회원 정보를 세션(브라우저 닫기 전까지 정보가 유지되는 공간, 기본 30분 정보 유지)에 보관하기
         HttpSession session = request.getSession();
         session.setAttribute("user", user);
+        //session.setMaxInactiveInterval(10);
         
         // Sign In 후 페이지 이동
         response.sendRedirect(request.getParameter("url"));
@@ -273,7 +274,7 @@ public class UserServiceImpl implements UserService {
       // Sign Out 기록 남기기
       HttpSession session = request.getSession();
       String sessionId = session.getId(); 
-      //userMapper.updateAccessHistory(sessionId);
+      userMapper.updateAccessHistory(sessionId);
       
       // 세션에 저장된 모든 정보 초기화
       session.invalidate();
