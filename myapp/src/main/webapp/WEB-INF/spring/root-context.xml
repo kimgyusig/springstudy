@@ -80,7 +80,7 @@
     
     
     
-    
+    <!-- id 는 반드시 multipartResolver 로 해야한다 다르면 spring이 찾지 못한다. -->
   <bean id="multipartResolver"
         class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
         scope="singleton">
