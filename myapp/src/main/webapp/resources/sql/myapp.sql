@@ -85,7 +85,7 @@ CREATE TABLE BLOG_T (
   BLOG_NO   NUMBER               NOT NULL,
   TITLE     VARCHAR2(1000 BYTE)  NOT NULL,
   CONTENTS  CLOB,
-  HIT       NUMBER               DEFAULT 0,  -- 조회수
+  HIT       NUMBER               DEFAULT 0,
   USER_NO   NUMBER               NOT NULL,
   CREATE_DT TIMESTAMP,
   MODIFY_DT TIMESTAMP,
