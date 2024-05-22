@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gdu.myapp.mapper.EmployeesMapper">
+
+  <insert id="insertEmployees"
+          parameterType="EmployeesDto">
+    INSERT INTO EMPLOYEES_T(
+     EMPLOYEE_NO
+     , NAME
+     , EMAIL
+     , PHONE
+     , ADDRESS
+     , DEPARTMENT_NO
+     , RANK_NO
+     , PASSWORD
+     , PROFILE_PICTURE_PATH
+     , EMPLOYEE_STATUS) VALUES (
+       1
+       , 'kane'
+       , 'KANE@TOTTENHAM.COM'
+       , '010-1111-1111'
+       , '런던 토트넘'
+       , 3
+       , 1
+       , '1111'
+       , NULL
+       , 0
+    )
+          
+  </insert> 
+
+  
+
+</mapper>

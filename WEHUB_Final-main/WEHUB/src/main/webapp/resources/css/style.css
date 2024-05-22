@@ -1,0 +1,350 @@
+@charset "UTF-8";
+
+/* 공통부분 */
+
+@font-face {
+  font-family: "RIDIBatang";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "RIDIBatang";
+}
+
+a {
+  text-decoration: none;
+  color:black;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+}
+
+hr {
+  margin-top: 0px;
+}
+
+#navbar {
+  /* border: 1px solid black; */
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  transition: all 300ms ease-in-out;
+  z-index: 1;
+  background: linear-gradient(to right, #101820, #17222e, #24374b, #38546d);
+  border-top-left-radius: 25px;
+}
+
+section {
+  padding-top: 59px;
+  width: 100%;
+  min-height: 100%;
+}
+
+section > .common_section {
+  position: fixed;
+  z-index: 2;
+  /* border: 1px solid black; */
+  /* height: 650px; */
+  width: 70px;
+  height: 100%;
+  background: linear-gradient(to bottom, #101820, #17222e, #24374b, #38546d);
+}
+
+footer {
+  display: flex;
+  align-items: flex-end;
+  margin-left: 190px;
+  justify-content: center;
+}
+
+footer > p {
+  font-size: 13px;
+  text-align: center;
+}
+
+/* nav 부분 */
+
+.header_logo {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header_logo > a > img {
+  padding-top: 10px;
+  width: 60px;
+  height: 55px;
+}
+
+.header_user_wrap {
+  display: flex;
+  /* align-items: center; */
+  position: absolute;
+  top: 0px;
+  right: 30px;
+}
+
+.header_profile {
+  display: inline-block;
+  font-size: 40px;
+  color: #faebef;
+  padding: 10px 10px 0 0;
+}
+.header_userInfo {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+#header_user li a {
+  color: #faebef;
+}
+
+#header_user > li {
+  margin: 0px;
+  text-align: center;
+  line-height: 27px;
+}
+
+#header_user > li > ul {
+  display: none;
+}
+
+#header_user > li a:hover {
+  color: #a484f3;
+}
+
+#header_user > li > a:hover + ul {
+  display: block;
+  font-size: 14px;
+  background-color: #38546d;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  transition-duration: 2s;
+}
+
+#header_user > li > ul:hover {
+  display: block;
+  font-size: 14px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: #38546d;
+  transition-duration: 2s;
+}
+
+/* section */
+
+.common_section li a {
+  color: #faebef;
+}
+.common_section > ul > li {
+  font-size: 30px;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.common_section i {
+  /* transition: all 200ms ease; */
+  font-size: 30px;
+}
+
+.active,
+.common_section i:active {
+  transform: scale(1.2);
+  cursor: pointer;
+  color: #a484f3;
+}
+
+
+section > .EPay-index_section {
+  margin-left: 70px;
+  border: 1px solid transparent;
+  width: 200px;
+  float: left;
+  font-size: 20px;
+  position: fixed;
+  height: 100%;
+  background: white;
+  border-right: 2.5px solid rgb(88, 107, 141);
+}
+
+.EPay-index_section li {
+  cursor: pointer;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.EPay-index_section li>ul {
+  position: absolute;
+  width: 200px;
+  padding: 0;
+  display: none;
+  margin: 0;
+}
+
+.EPay-index_section li>div {
+  display: none;
+  font-size: 15px;
+}
+
+/* section2 부분*/
+
+section > .index_section2 h2{
+  margin-left: 450px;
+  font-size: 35px;
+  font-weight: 900;
+  line-height: 100px;
+  margin-top: 0; 
+}
+
+#e-pay-status{
+  padding-left: 450px;
+}
+
+#e-pay-status span {
+  border: 1px solid lightgrey;
+  display: inline-block;
+  text-align: center;
+  width: 447px;
+  height: 300px;
+  font-size: 40px;
+  border-radius: 8px;
+  color: rgb(59, 211, 39);
+}
+
+#e-pay-status span>div{
+  color: black;
+  padding-top: 70px;
+  font-size: 70px;
+}
+
+section > .index_section2 table{
+  margin-left: 450px;
+  line-height: 40px;
+  width: 1350px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+#e-pay-list th{
+  border-bottom: 1px solid black;
+}
+
+#e-pay-list td{
+  border-bottom: 1px solid lightgrey;
+  border-right: 1px dotted lightgrey;
+  border-radius: 5px;
+}
+
+.index_section2-form1{
+  padding-top: 70px;
+}
+
+.index_section2-form1 h2{
+  font-size: 50px;
+  margin-bottom: 10;
+  text-align: center;
+  margin: 0px 160px 0px 0px;
+}
+#table1{
+  padding-left: 1250px;
+  padding-bottom: 40px;
+}
+
+#table1 th{
+  background: lightgrey;
+}
+
+#table2{
+  text-align: center;
+  width: 1020px;
+  margin-left: 500px;
+}
+
+#table2 td{
+  border: 1px solid;
+}
+
+#table2 input{
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  border: none;
+}
+
+#table2 button{
+  border-radius: 30px;
+  font-size: 20px;
+  background: none;
+}
+
+#table2 textarea{
+  border: none;
+}
+
+.index_section2-form1 #table1 td{
+  text-align: center;
+  height: 50px;
+}
+
+/* 추가 메뉴섹션 예시 */
+
+.index_section {
+  margin-left: 70px;
+  border: 1px solid transparent;
+  width: 200px;
+  height: 880px;
+  position: fixed;
+}
+
+.index_section {
+  padding-left: 10px;
+  background-color: #d2ddd8;
+  line-height: 30px;
+}
+
+.index_section > ul > li {
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
+.line {
+  border: 1px solid black;
+  width: 150px;
+}
+
+.index_section ul > li > ul > li:hover {
+  cursor: pointer;
+  font-weight: 800;
+}
+
+@font-face {
+    font-family: 'InfinitySans-RegularA1';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

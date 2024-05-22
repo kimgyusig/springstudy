@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+						http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<annotation-driven />
+
+	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/js/**" location="/resources/js/" />
+	<resources mapping="/css/**" location="/resources/css/" />
+	<resources mapping="/fullcalendar-5.6.0/**" location="/resources/fullcalendar-5.6.0/" />
+	<resources mapping="/images/**" location="/resources/images/" />
+	<resources mapping="/upload/userProfileImg/**" location="/resources/upload/userProfileImg/" />
+	<resources mapping="/ckeditor/**" location="/resources/ckeditor/" />
+	<resources mapping="/upload/**" location="/resources/upload/**" />
+
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+
+	<!-- 회원가입 메일 인증(메일 보내기) -->
+	<beans:bean id="mailSender"	class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<beans:property name="host" value="smtp.gmail.com" />
+		<beans:property name="port" value="587" /><!-- 465 or 25 -->
+		<beans:property name="username" value="panda960310@gmail.com" />
+		<beans:property name="password" value="130867k!" />
+		<beans:property name="defaultEncoding" value="utf-8" />
+
+        <!-- email 요청시는 SMTP -->
+		<beans:property name="javaMailProperties">
+			<beans:props>
+				<beans:prop key="mail.transport.protocol">smtp</beans:prop>
+				<beans:prop key="mail.smtp.auth">true</beans:prop>
+				<beans:prop key="mail.smtp.starttls.enable">true</beans:prop>
+				<beans:prop key="mail.debug">true</beans:prop>
+			</beans:props>
+		</beans:property>
+	</beans:bean>
+
+	
+	<context:component-scan base-package="com.kh.wehub" />
+
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+	 <interceptors>
+	 	<interceptor>
+	 	  <mapping path="/main"/>
+	 	  <mapping path="/member/memModify"/>
+	 	  <mapping path="/board/**"/>
+	 	
+ 		  <exclude-mapping path="/member/findIDorPwd"/>
+ 		  <exclude-mapping path="/member/signUpForm"/>
+	 		
+	 	<beans:bean id="loginCheckInterceptor" class="com.kh.wehub.common.interceptor.LoginCheckInterceptor"/>
+	 	</interceptor>
+	 </interceptors>
+</beans:beans>
+
