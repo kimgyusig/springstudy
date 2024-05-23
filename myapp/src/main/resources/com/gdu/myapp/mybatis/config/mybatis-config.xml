@@ -25,7 +25,7 @@
     <typeAlias alias="EmployeesDto" type="com.gdu.myapp.dto.EmployeesDto"/>
     <typeAlias alias="LeaveRequestDto" type="com.gdu.myapp.dto.LeaveRequestDto"/>
     <typeAlias alias="LeaveUseDto" type="com.gdu.myapp.dto.LeaveUseDto"/>
-    <typeAlias alias="LeaveUseDto" type="com.gdu.myapp.dto.LeaveUseDto"/>
+    <typeAlias alias="DepartmentsDto" type="com.gdu.myapp.dto.DepartmentsDto"/>
     <typeAlias alias="RanksDto" type="com.gdu.myapp.dto.RanksDto"/>
     <typeAlias alias="RequestAttachDto" type="com.gdu.myapp.dto.RequestAttachDto"/>
     <typeAlias alias="RequestsDto" type="com.gdu.myapp.dto.RequestsDto"/>

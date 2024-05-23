@@ -11,7 +11,7 @@
  
 </style>
 
-  
+  <div><a href="${contextPath}/approval/write.page">기안하기</a></div>
 
 
 

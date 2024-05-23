@@ -13,4 +13,9 @@ public class ApprovalController {
     return "/approval/main";
   }
   
+  @GetMapping("/write.page")
+  public String writePage() {
+    return"/approval/write";
+  }
+  
 }
