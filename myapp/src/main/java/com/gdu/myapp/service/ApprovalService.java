@@ -1,8 +1,10 @@
 package com.gdu.myapp.service;
 
+import java.util.Map;
+
 import com.gdu.myapp.dto.RequestsDto;
 
 public interface ApprovalService {
 
-  int insertApproval(RequestsDto requests1, RequestsDto requests2);
+  int insertApproval(Map<String, Object>map);
 }

@@ -14,8 +14,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class EmployeesDto {
 
-  private int employeeNo, departmentNo, rankNo, employeeStatus;
+  private int employeeNo,employeeStatus;
   private String name, email, phone, address, password, profilePicturePath;
   private Date hireDate, exitDate;
+  private DepartmentsDto depart;
+  private RanksDto rank;
   
 }

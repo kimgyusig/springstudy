@@ -34,9 +34,12 @@
       </div>
       <div>
         <label for="startDate">시작일</label>
-        <input type="text" name="startDate" id="startDate">
+        <input type="text" name="startDate" id="endDate">
+        <label for="endDate">종료일</label>
+        <input type="text" name="endDate" id="endDate">
       </div>
       <input type="hidden" name="status" value="0">
+      <input type="hidden" name="employeeNo" value="1">
     </div>
   </form>
 

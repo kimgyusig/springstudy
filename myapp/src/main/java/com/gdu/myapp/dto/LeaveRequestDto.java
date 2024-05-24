@@ -14,7 +14,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class LeaveRequestDto {
 
-  private int requestNo, duration, leaveType;
+  private int  duration, leaveType;
   private Date startDate, endDate;
+  private RequestsDto requests;
   
 }
