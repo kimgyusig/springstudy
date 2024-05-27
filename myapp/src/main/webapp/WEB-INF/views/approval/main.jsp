@@ -15,6 +15,9 @@
 
 
 
+  <div>${approvalCount.requestNo}</div>
+  <div>${approvalCount.reason}</div>
+
 
 
 <script>

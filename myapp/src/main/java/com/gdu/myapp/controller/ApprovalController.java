@@ -14,6 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gdu.myapp.dto.DepartmentsDto;
 import com.gdu.myapp.dto.EmployeesDto;
@@ -42,15 +44,24 @@ public class ApprovalController {
   }
   
   @PostMapping("/write.do")
-  public int registerApproval(Model model, HttpServletRequest request) {
-      // 첫 번째 메서드 호출
-      int result1 =  approvalService.insertApproval(request);
-      
-      // 두 번째 메서드 호출
-      int result2 = approvalService.insertLeaveApproval(request);
-      
-      // 두 결과를 합산하여 반환하거나, 조정하여 반환
-      return result1 + result2;
+  public String registerApproval(HttpServletRequest request, RedirectAttributes redirectAttributes) {
+    int approvalCount = approvalService.insertApproval(request);
+    int leaveApprovalCount = approvalService.insertLeaveApproval(request);
+    
+    // 두 서비스의 결과를 사용하여 적절한 처리 수행
+    // 예를 들어, 리다이렉트 속성에 결과를 추가하거나 다른 작업 수행
+
+    // 예시: 리다이렉트 속성에 결과 추가
+    redirectAttributes.addFlashAttribute("approvalCount", approvalCount);
+    redirectAttributes.addFlashAttribute("leaveApprovalCount", leaveApprovalCount);
+    
+    return "redirect:/approval/main.page";
+  }
+  
+  @PostMapping("/list.do")
+  public String prac(HttpServletRequest request) {
+    
+    return "redirect:/approval/main.page";
   }
   
 }

@@ -19,33 +19,42 @@
     
     INSERT INTO REQUESTS_T(
         REQUEST_NO,
+        REQUEST_SORT,
         REQUEST_DATE,
         REASON,
         REQUEST_STATUS,
-        EMPLOYEE_NO
+        EMPLOYEE_NO,
+        PIC_NO
     ) VALUES (
         #{requestNo},
+        #{requestSort},
         CURRENT_DATE,
         #{reason},
         #{requestStatus},
-        #{employeeNo}
+        #{employees.employeeNo},
+        #{picNo}
     )
 </insert>
 
-<insert id="insertLeaveApproval" parameterType="LeaveRequestDto">
-    INSERT INTO LEAVE_REQUEST_T(
-        REQUEST_NO,
-        START_DATE,
-        END_DATE,
-        DURATION,
-        LEAVE_TYPE,
-    ) VALUES (
-        #{requestNo}, <!-- 첫 번째 쿼리에서 생성된 requestNo를 사용합니다 -->
-        #{startDate},
-        #{endDate},
-        #{duration},
-        #{leaveType},       
-    )
+<insert id="insertLeaveApproval"
+        parameterType="LeaveRequestDto">
+  INSERT INTO LEAVE_REQUEST_T(
+  REQUEST_NO,
+  START_DATE,
+  END_DATE,
+  DURATION,
+  LEAVE_TYPE) VALUES(
+  #{requests.requestNo},
+  #{startDate},
+  #{endDate},
+  #{duration},
+  #{leaveType})
+
+</insert>
+
+<insert id="insertPrac"
+        parameterType="PracDto">
+  INSERT INTO PRAC_T(DEPT_NO,DEPT_NAME) VALUES(#{deptNo}, #{deptName})
 </insert>
   
 

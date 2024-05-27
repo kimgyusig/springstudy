@@ -29,5 +29,6 @@
     <typeAlias alias="RanksDto" type="com.gdu.myapp.dto.RanksDto"/>
     <typeAlias alias="RequestAttachDto" type="com.gdu.myapp.dto.RequestAttachDto"/>
     <typeAlias alias="RequestsDto" type="com.gdu.myapp.dto.RequestsDto"/>
+    <typeAlias alias="PracDto" type="com.gdu.myapp.dto.PracDto"/>
   </typeAliases>
 </configuration>

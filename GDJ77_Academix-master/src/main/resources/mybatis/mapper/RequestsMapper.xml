@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gdu.academix.mapper.RequestsMapper">
+
+
+  <insert id="insertRequest" parameterType="RequestsDto" useGeneratedKeys="true" keyProperty="requestNo" keyColumn="REQUEST_NO">
+    <!-- REQUEST_NO를 미리 생성하고 keyProperty에 할당합니다 -->
+    <selectKey keyProperty="requestNo" resultType="int" order="BEFORE">
+        SELECT REQUESTS_SEQ.NEXTVAL AS requestNo FROM DUAL
+    </selectKey>
+    
+    INSERT INTO REQUESTS_T(
+        REQUEST_NO,
+        REQUEST_SORT,
+        REQUEST_DATE,
+        REASON,
+        REQUEST_STATUS,
+        REJECT_REASON,
+        PIC_NO,
+        EMPLOYEE_NO
+    ) VALUES (
+        #{requestNo},
+        #{requestSort},
+        CURRENT_DATE,
+        #{reason},
+        #{requestStatus},
+        null,
+        #{picNo},
+        #{employees.employeeNo}
+    )
+</insert>
+
+<insert id="insertLeaveRequest" parameterType="LeaveRequestDto" useGeneratedKeys="true" keyProperty="requestNo" keyColumn="REQUEST_NO">
+    <!-- REQUEST_NO를 미리 생성하고 keyProperty에 할당합니다 -->
+    <selectKey keyProperty="requestNo" resultType="int" order="BEFORE">
+        SELECT REQUESTS_SEQ.NEXTVAL AS requestNo FROM DUAL
+    </selectKey>
+
+    INSERT INTO LEAVE_REQUEST_T(
+        REQUEST_NO,
+        START_DATE,
+        END_DATE,
+        DURATION,
+        LEAVE_TYPE
+    ) VALUES (
+        #{requestNo},
+        to_date(#{startDate}, 'MM/DD/YYYY HH24:MI:SS'),
+        to_date(#{endDate}, 'MM/DD/YYYY HH24:MI:SS'),
+        #{duration},
+        #{leaveType}
+    )
+</insert>
+
+</mapper>
