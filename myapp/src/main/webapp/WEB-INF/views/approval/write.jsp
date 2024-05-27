@@ -41,6 +41,7 @@
       <input type="hidden" name="status" value="0">
       <input type="hidden" name="employeeNo" value="1">
     </div>
+    <button type="submit" id="frm-register">기안</button>
   </form>
 
 
@@ -49,6 +50,17 @@
 
 <script>
 
+const fnRegisterPost = (evt) => {
+    if(document.getElementById('name').value == ''){
+      alert('제목 입력은 필수입니다.');
+      evt.preventDefault();
+      return;
+    }
+  }
+  
+  document.getElementById('frm-register').addEventListener('submit', (evt) => {
+    fnRegisterPost(evt);
+  })
   
 
 </script>

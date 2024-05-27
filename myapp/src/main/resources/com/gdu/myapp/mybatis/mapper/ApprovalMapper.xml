@@ -4,39 +4,49 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.gdu.myapp.mapper.ApprovalMapper">
-
-  <insert id="insertApproval"
-          parameterType="RequestsDto">
+  
+  
+ 
+    
+  
+ <insert id="insertApproval" parameterType="RequestsDto" 
+        useGeneratedKeys="true" keyProperty="requestNo" 
+        keyColumn="REQUEST_NO">
+    <!-- REQUEST_NO를 미리 생성하고 keyProperty에 할당합니다 -->
+    <selectKey keyProperty="requestNo" resultType="int" order="BEFORE">
+        SELECT REQUESTS_SEQ.NEXTVAL AS requestNo FROM DUAL
+    </selectKey>
+    
     INSERT INTO REQUESTS_T(
-     REQUEST_NO
-     , REQUEST_SORT
-     , REQUEST_DATE
-     , REASON
-     , REQUEST_STATUS
-     , EMPLOYEE_NO) VALUES (
-       REQUESTS_SEQ.NEXTVAL
-       , #{requestSort}
-       , CURRENT_DATE
-       , #{reason}
-       , #{employeeNo}
+        REQUEST_NO,
+        REQUEST_DATE,
+        REASON,
+        REQUEST_STATUS,
+        EMPLOYEE_NO
+    ) VALUES (
+        #{requestNo},
+        CURRENT_DATE,
+        #{reason},
+        #{requestStatus},
+        #{employeeNo}
     )
-  </insert> 
+</insert>
 
-  <insert id="insertLeaveApproval"
-          parameterType="LeaveRequestDto">
+<insert id="insertLeaveApproval" parameterType="LeaveRequestDto">
     INSERT INTO LEAVE_REQUEST_T(
-      REQUEST_NO
-    , START_DATE
-    , END_DATE
-    , DURATION
-    , LEAVE_TYPE   ) VALUES(
-       1,
-       #{startDate},
-       #{endDate}
-       ,#{duration}
-       , #{leaveType}
-                )
-  </insert>
+        REQUEST_NO,
+        START_DATE,
+        END_DATE,
+        DURATION,
+        LEAVE_TYPE,
+    ) VALUES (
+        #{requestNo}, <!-- 첫 번째 쿼리에서 생성된 requestNo를 사용합니다 -->
+        #{startDate},
+        #{endDate},
+        #{duration},
+        #{leaveType},       
+    )
+</insert>
   
 
 </mapper>

@@ -16,6 +16,6 @@ public class RequestsDto {
   private int requestNo, requestSort, requestStatus, picNo;
   private Date requestDate;
   private String reason, rejectreason;
-  private EmployeesDto employess;
+  private EmployeesDto employees;
   
 }
